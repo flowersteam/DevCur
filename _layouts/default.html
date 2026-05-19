@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'en' }}" class="html theme--{{ site.displayMode | default: 'light' }}">
+  {% include head.html %}
+  <body class="body">
+    <div class="wrapper">
+
+      <aside class="wrapper__sidebar" id="sidebar">
+        {% include sidebar.html %}
+      </aside>
+
+      <main class="wrapper__main">
+        <header class="header">
+          {% include navbar.html %}
+        </header>
+        <div class="wrapper__main-content">
+          {{ content }}
+        </div>
+        {% include footer.html %}
+      </main>
+
+    </div>
+
+    {% if site.enable_mathjax %}
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        }
+      };
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    {% endif %}
+  </body>
+</html>

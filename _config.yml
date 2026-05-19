@@ -1,0 +1,46 @@
+title:       "DevCur"
+description: "A developmental curiosity research project"
+url:         "https://julien-rsbrg.github.io"
+baseurl:     "/DevCur"
+author:      "INRIA Flowers Team"
+email:       "pierre-yves.oudeyer@inria.fr"
+profile_picture: "/assets/images/profile.jpg"
+
+header_pages:
+  - projects.md
+  - publications.md
+  - participate.md
+  - contact.md
+
+# Features
+enable_mathjax:  true
+show_social_icons: true
+displayMode:     "light"   # "light" or "dark"
+
+# Social icons (Anatole-style)
+socialIcons:
+  - title: "GitHub"
+    icon:  "fab fa-github"
+    url:   "https://github.com/flowersteam"
+  - title: "Twitter / X"
+    icon:  "fab fa-x-twitter"
+    url:   "https://twitter.com/FlowersINRIA"
+
+collections:
+  collaborators:
+    output: false
+
+# Build
+markdown: kramdown
+kramdown:
+  math_engine: mathjax
+
+permalink: pretty
+plugins:
+  - jekyll-sitemap
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor

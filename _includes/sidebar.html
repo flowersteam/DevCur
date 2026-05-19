@@ -1,0 +1,56 @@
+<div class="sidebar">
+  <div class="sidebar__content animated fadeInDown">
+
+    <div class="sidebar__introduction">
+      {% if page.url == '/' or page.url == '' %}
+      <div class="sidebar__introduction-title">
+        <h1><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
+      </div>
+      {% else %}
+      <div class="sidebar__introduction-title">
+        <a href="{{ '/' | relative_url }}">{{ site.title }}</a>
+      </div>
+      {% endif %}
+      <div class="sidebar__introduction-description">
+        <p>{{ site.description }}</p>
+      </div>
+    </div>
+
+    <!-- Nav links repeated here for mobile (top bar hides them on small screens) -->
+    <nav class="sidebar__mobile-nav" aria-label="Mobile navigation">
+      <ul class="sidebar__nav-list">
+        <li class="sidebar__nav-item">
+          <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>
+            <i class="fas fa-info-circle" aria-hidden="true"></i> About
+          </a>
+        </li>
+        {% for link in site.header_pages %}
+          {% assign node = site.pages | where: "path", link | first %}
+          {% if node %}
+          <li class="sidebar__nav-item">
+            <a href="{{ node.url | relative_url }}" {% if page.url == node.url %}class="active"{% endif %}>
+              {% case node.title %}
+                {% when "Projects" %}<i class="fas fa-flask" aria-hidden="true"></i>
+                {% when "Publications" %}<i class="fas fa-book-open" aria-hidden="true"></i>
+                {% when "Participate" %}<i class="fas fa-hands-helping" aria-hidden="true"></i>
+                {% else %}<i class="fas fa-file-alt" aria-hidden="true"></i>
+              {% endcase %}
+              {{ node.title }}
+            </a>
+          </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </nav>
+
+    <div class="sidebar__photo">
+      <img
+        src="{{ '/images/pexels-cottonbro-9290021.jpg' | relative_url }}"
+        alt="A group of kids scouting"
+        title="Photo credit: Cottonbro studio on Pexels: https://www.pexels.com/photo/a-group-of-kids-scouting-9290021"
+      />
+    </div>
+
+
+  </div>
+</div>

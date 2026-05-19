@@ -1,0 +1,27 @@
+---
+layout: default
+---
+
+<div class="post animated fadeInDown">
+  <div class="post__content">
+    <h1 class="post__title">{{ page.title }}</h1>
+    {% if page.people %}
+    <p class="post__people">
+      <i class="fas fa-users" aria-hidden="true"></i>
+      {{ page.people | join: ", " }}
+    </p>
+    {% endif %}
+    {% if page.location %}
+    <p class="post__location">
+      <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+      {{ page.location }}
+    </p>
+    {% endif %}
+    {% if page.status %}
+    <span class="post__status post__status--{{ page.status | downcase | replace: ' ', '-' | replace: '-', '' }}">{{ page.status }}</span>
+    {% endif %}
+  </div>
+  <div class="post__body">
+    {{ content }}
+  </div>
+</div>
