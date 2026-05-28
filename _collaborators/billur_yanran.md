@@ -1,5 +1,5 @@
 ---
-name: "Billur Yanran"
+name: "Billur Yaran"
 initials: "BY"
 role: "PhD Student"
 subrole: ""
